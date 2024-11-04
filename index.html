@@ -1,0 +1,567 @@
+<!DOCTYPE html><html><head><base href="https://www.livro-horror-inovador.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesadelos Eternos - Um Livro de Horror Visceral</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Cinzel+Decorative:wght@400;700&display=swap');
+
+  :root {
+    --bg-color: #0a0a0a;
+    --text-color: #f5f5f5;
+    --accent-color: #8b0000;
+    --highlight-color: #ff4500;
+    --secondary-color: #2c2c2c;
+    --gradient-dark: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    --modern-gradient: linear-gradient(135deg, var(--accent-color), #ff6b6b);
+    --glass-effect: rgba(255, 255, 255, 0.1);
+    --main-font: 'Roboto', sans-serif;
+    --title-font: 'Cinzel Decorative', cursive;
+  }
+
+  body {
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    transition: top 0.3s;
+  }
+
+  .header-hidden {
+    top: -80px;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+
+  nav ul li a {
+    font-family: var(--title-font);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-effect);
+  }
+
+  nav ul li a:hover {
+    background: rgba(139, 0, 0, 0.2);
+    color: var(--highlight-color);
+  }
+
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('dark-forest.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--glass-effect);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  h1, h2 {
+    font-family: var(--title-font);
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #fff, #b3b3b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+  }
+
+  .hero .subtitle {
+    font-family: var(--title-font);
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--modern-gradient);
+    color: #fff;
+    padding: 18px 36px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    border: none;
+    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
+  }
+
+  .cta-button:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.05);
+  }
+
+  .social-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .social-button:hover {
+    background: var(--modern-gradient);
+    transform: translateY(-2px);
+  }
+
+  .social-button i {
+    margin-right: 8px;
+  }
+
+  .book-preview {
+    display: flex;
+    align-items: center;
+    background: rgba(44, 44, 44, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-effect);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .book-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.2);
+  }
+
+  .book-cover {
+    flex: 1;
+    position: relative;
+  }
+
+  .book-cover img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .book-cover img:hover {
+    transform: scale(1.05) rotate(-3deg);
+  }
+
+  .book-description {
+    flex: 2;
+    padding: 0 40px;
+  }
+
+  .video-section {
+    margin: 100px 0;
+  }
+  
+  .image-gallery {
+    margin: 50px 0;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-gallery {
+    margin: 100px 0;
+  }
+
+  .gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    filter: grayscale(50%) contrast(120%);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .gallery-image:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%) contrast(100%);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+  }
+
+  footer {
+    background: var(--gradient-dark);
+    color: var(--text-color);
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 80px;
+  }
+
+  .blood-drip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .blood-drop {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    animation: drip 4s linear infinite;
+  }
+
+  @keyframes drip {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  section {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #autor {
+    margin-bottom: 150px;
+  }
+
+  .video-section h2,
+  #autor h2,
+  .image-gallery h2 {
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+  <div class="blood-drip" id="bloodDrip"></div>
+
+  <header id="header">
+    <nav>
+      <ul>
+        <li><a href="#sobre">OS LIVROS</a></li>
+        <li><a href="#autor">Autor</a></li>
+        <li><a href="#videos">Trailer</a></li>
+        <li><a href="#imagens">Galeria</a></li>
+        <li><a href="#comprar">Comprar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNcXbr63zdd5yxS8ttPlzhuS8GhWR3uYKt4GToEIBNsnIfeXjmNq3Qf8a16D2Cn50awCUp-e8bhpiXXM02oJGiEDkvjehnPGovlEh3hIthmlj67RZ_ILAeKSGIzcLkIzMsHKsXjCsh_8583b7xQopv0kT3ROHulwTTAhEMOy6E_9-_-yUH85DSZicxgcYC/s16000/fundo.jpeg'); background-size: cover; background-position: center;">
+      <div class="hero-content" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 50px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        <h1 style="color: white">DIVINE COLLECTION</h1>
+        <h2 class="subtitle" style="color: white; font-size: 1.8rem;">Financiamento Coletivo Aberto</h2>
+        <p>ACESSE O NOSSO CARTARSE PARA TER ACESSO A VÁRIAS RECOMPENSAS EXTRAS</p>
+        <a href="#comprar" class="cta-button">CONHEÇA MAIS AGORA MESMO</a>
+        <div class="social-buttons">
+          <a href="https://www.instagram.com/divinecollection" class="social-button">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a href="https://www.facebook.com/divinecollection" class="social-button">
+            <i class="fab fa-facebook"></i> Facebook
+          </a>
+          <a href="https://www.youtube.com/@DivineCollectionbooks" class="social-button">
+  <i class="fab fa-youtube"></i> YouTube
+</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section id="sobre" class="book-preview">
+        <div class="book-cover">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi57LCPis8MEYiyhAlW6dykPYvF0klF2Bvma_IU-p0pXksTFmUHyAajtsPnrjcHcc36TB7cQYhw-0NW-Mqkezglk5m9wVpU4XPA0qiuAMMuo5kPElAuE70Ont2QC7aPXp3vwSApYI9KI84lk4X2CbahKXqGjcVSqsqGAoeDEjf5g3SkA3cwi1f6AmRgfY_n/s1600/livro%20inferno.jpg" alt="Capa do livro 'Inferno: Entre Anjos e Demônios', mostrando uma capa dramática com elementos infernais" width="400" height="600">
+        </div>
+        <div class="book-description">
+          <h2>INFERNO: Entre Anjos e Demônios</h2>
+          <p>
+            Uma nova versão do clássico Divina comédia, ou mais conhecido como Inferno de Dante.
+            O livro original, com mais de 700 anos, tem uma linguagem feita em cantos, traduzida do italiano antigo e simbolismos complexos. Então pode afastar os novos leitores.
+
+            Mas agora você conhecerá a minha inédita versão. Aqui, você acompanhará toda a história original, mas de um jeito totalmente atual. 
+            Neste livro, temos a descrição mais detalhada do Inferno que já foi imaginada na literatura.
+          </p>
+          <p>
+            Em forma de aventura, Acompanhe dante por sua passagem pelos nove círculos do Inferno, enfrentando diversos desafios, conhecendo os pecadores e enfrentando criaturas infernais.
+            Acompanhe tambem a caminhada das almas, seus pecados através montanha do Purgatório e finalmente chegue ao paraíso, onde Dante conhece todas as divindades, santos e anjos, até o Próprio Deus.
+          </p>
+          <p>
+            Diferente do livro original, você não precisará estudar por dias para tentar entender tudo que o autor queria dizer. Eu já fiz isso pra você!
+            Aqui, Os simbolismos complexos são apresentados de uma maneira facil e explicada, para que você tenha uma leitura totalmente fluida e divertida, apenas aproveitando da Aventura de Dante através do mundo espiritual!
+          </p>
+        </div>
+      </section>
+
+      <section id="sobre" class="book-preview">
+        <div class="book-cover">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRP6TBUwBLCak8ljyxfKlhzDlyhzaYjWR_oCwHBM4tiKYa24wRoGOWSg0M1Bx6vVjQaoISZhfNbU1_j2VXiI8O8jqKWPZeSP0HBwcIvVP8nh3a2K5FzyrWSwqiW4411Se_EdoZJJR0YE3cefuOwO7_1R_BY2BE0NGsKVIOcygzoK2ELRTRFP8r5t1h_P_C/s1600/livro%20a%20queda.jpg" alt="Capa do livro 'A Queda: Paraíso Perdido' mostrando anjos caindo do céu em um estilo dramático e sombrio" width="400" height="600">
+        </div>
+        <div class="book-description">
+          <h2>A QUEDA: PARAÍSO PERDIDO</h2>
+          <div>
+          </div>
+          <p>
+            Uma nova versão da história de Paraíso Perdido, de Milton. Com mais de 400 anos, é considerado por muitos a descrição mais detalhada da guerra no céu, tendo como personagem principal o próprio lúcifer. 
+            Mas como também foi escrita em cantos, e com uma escrita arcaica, afasta maioria de novos leitores. Então, conheça a minha versão atualizada: A Queda: Paraiso Perdido.
+          </p>
+          <p>
+            Reescrito e reimaginado de uma forma épica, acompanhe a intensa batalha dos anjos, onde milhares brigam pelo céu. Com uma narrativa bem facil, acompanhe a história de Lucifer.
+            Um personagem extremamente complexo, que depois de ser expulso dos céus com um terço dos anjos,  tenta escapar do inferno, buscando entender melhor o seu lugar no universo e investigar sobre a nova criação de Deus.
+            E o melhor de tudo? Essa versão conecta detalhes não contados na Bíblia e amarra as histórias de uma forma única, que vai te prender do começo ao fim.
+          </p>
+        </div>
+      </section>
+
+      <section id="sobre" class="book-preview">
+        <div class="book-cover">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYLE-S0qoUv595k84vzC48RFRET0de0HPy6pShyp1VuU71SqMA5qMMy_Y6QaIiqVqmWR_Mi82q4bU2g-7d75JXNxK2mUFpNBmFrrwHMNCguNYOl0oFMvBrkd0-JWp5sMoHIAzWOQwzNzbUmE9PnNsZYWrSdEi9JAfFRgdl02bLR8hSd-XaRDuoP3HGbSfe/s1600/livro%20nas%20sombras.jpg" alt="Capa do livro 'Nas Sombras da Tentação', mostrando elementos sombrios e místicos" width="400" height="600">
+        </div>
+        <div class="book-description">
+          <h2>
+            NAS SOMBRAS DA TENTAÇÃO:<br>
+            PARAÍSO RETOMADO
+          </h2>
+          <p>
+            Este livro é também uma releitura atualizada, com linguagem jovem e atual do livro Paraíso Retomado, considerado por muitos a continuação direta do livro Paraiso Perdido. 
+            Neste livro, vemos Jesus no deserto por 40 dias, enquanto o Diabo aparece e traz diversas tentações. Levando-o por diversos lugares e pensamentos, o diabo tenta fazer Jesus cair. É uma batalha épica, mas de uma forma mental e de inteligência, mostrando o que realmente é o ser humano e como a mente pode ser maligna!
+          </p>
+          <p></p>
+        </div>
+      </section>
+
+      <section id="sobre" class="book-preview">
+        <div class="book-cover">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjd_BLMJQBMs63jlWY0SLUkQzKLJSjFG1bNeRdVZUBLhUsDfHnZlWkuqJg4Xs2HjU61VL_zL5aAFYFCcsEVlY5b-J5QaY0M-0PpeYFQiKqk63KD58lppjKghs_6wWHRoS_5_jFR0asPQVwJCwwbMFjM1NH8wY9Mgd-AGq_nlPDKgrdldRSiqo0rxmM2FNVd/s1600/livro%20collection.jpg" alt="Capa do livro 'Glossário Divine Collection', mostrando uma compilação de elementos místicos e simbólicos da coleção" width="400" height="600">
+        </div>
+        <div class="book-description">
+          <h2>GLOSSÁRIO: DIVINE COLLECTION</h2>
+          <p>
+            Uma coletânea citando tudo sobre os anjos do céu, anjos caídos, demônios e todas as criaturas que aparecem nos livros. 
+            Saiba mais sobre todas elas, referências bíblicas, mitológicas, referências da cultura nerd, interpretações na cultura pagã, demonologia, tradição judaica, tradição islâmica e muito mais. 
+            É o maior material já feito sobre o assunto! Você vai ver! Um livro totalmente inédito.
+          </p>
+          <p></p>
+        </div>
+      </section>
+
+      <section id="autor">
+        <h2>Sobre o Autor</h2>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgf0ogRmzVuz_9QhV3MvrpkMkDVqJW3w_1NC3DkfBvYMbyh_8plDEPu2L6QrE2zBOSWLmSWgUULTwfQMiauFYiISDKPvuIZQAxDg2ILT5eTiRTNlYavq6JIe8jwWnkE2jl5kvJgfzxBs4lKYxOlH1dn6D02U9UzfrAiFlwAdO-dyj3WlI8zLfCUS6U_ro89/s1600/autor.jpg" alt="Foto do autor Christopher Souza sorrindo, usando óculos e com barba" width="200" height="200" style="border-radius: 50%; float: left; margin-right: 20px;">
+        <p>Me chamo Christopher Souza, o criador da Divine Collection! Sempre fui fascinado por mitologia, anjos, demônios e grandes histórias que fazem a gente viajar neste mundo!</p>
+        <p>Depois de anos de estudo e desenvolvimento, eu criei essa coleção única que une tradição e modernidade, transformando clássicos como A Divina Comédia e Paraíso Perdido em aventuras modernas, acessíveis e cheias de emoção. Esse projeto é o resultado de muita paixão e dedicação, e estou muito empolgado em compartilhar isso com você! Vamos juntos dar vida a este projeto revolucionário!</p>
+      </section>
+
+      <section id="videos" class="video-section">
+        <h2>Trailer Oficial</h2>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ch54QktqLbo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+          </iframe>
+        </div>
+      </section>
+
+      <section id="imagens" class="image-gallery">
+        <h2 style="text-align: left;">GALERIA DE RECOMPENSAS</h2>
+          <div class="gallery-images">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEju6riCXN9vo5oWH5Sm5u9ME_ldcY-U0hyphenhyphenPAvVeM0oqiLSOQT5WI040szkfRitmLQjYiA3AZuAo5Cag9DY1Hqq78oXq0tmPIOh-pul1l_B72N3cvVwS7n0uRbDjVt_n0NI-xijIWzNtuktw0d3EYCOkWYrK2bhmVhjjKucgD7sWy1utIo89qIVZ6cLe9vcz/s1600/galeria%201.jpg" alt="Ilustração conceitual da Divine Collection mostrando elementos místicos e angelicais" class="gallery-image">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjboctiAk7z7bJ6Ck8h15p3LUmOmmIMjTrqvdpTZrmZh3uPe5-d97ruBZiZ6cKPoAnxp0_d_r1iokS4XCb3ITrgrlpMsbBGYdHvNlbzgZUnlqISq_1OXZkBnNJyipaGU_MMor4Yw_ZkrO84SvxHV-CMMyD0aujtqHcTqWi1pJUTlf_spGre9D_bAOf9CiuT/s1600/galeria%203.jpg" alt="Uma ilustração dramática mostrando mais elementos conceituais da Divine Collection" class="gallery-image">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi13trFenPn9Si6_IP_WtOEspE5JSpb_VYeWrVQKnKstHFF6L6w7LHvKkPcpUlLRYwHuT4j7voVZbQc7meS1C8cc9u4FrxU8LDO2ECIJuDQQA7aMS1MzQlWqBaQu_2LqY8Ztstg55xHN-aDU2b-qSmGt7fdYGO17Zgr_zrtS2I1FEYqEZCXpCRH71zy7f_d/s1600/galeria%202.jpg" alt="Uma ilustração dramática mostrando elementos da Divine Collection" class="gallery-image">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJMRIxgTCtYvcM7aZ3baXEtWdULtuRbe4D2Wz8L1HsyN35MbRvlreSP2dAgs_25ueRQ0x0F8u_XPKccJa8gteyszJeOc2z4PEwsikkHHs1QuSfRVJOrQPFMm-y_zFdc-g4Bi9EAiFoA13iYZ4fDZdzA2IXKe9zksUotXMSDmJoY-HW2FKoPGLTR-MpqkdM/s1600/galeria%204.jpg" alt="Uma ilustração dramática mostrando recompensas da Divine Collection" class="gallery-image">
+          </div>
+
+      </section>
+
+      <section id="comprar">
+        <h2>Visite o nosso Catarse para adquirir sua coletânea</h2>
+        <p>APOIE E COMPRE SUA VERSÃO FÍSICA OU DIGITAL DOS LIVROS PARA RECEBER DIVERSAS RECOMPENSAS EXTRAS SEM CUSTO ADICIONAL!</p>
+        <a href="https://www.catarse.me/divinecollection" class="cta-button">COMPRE E VEJA MAIS NA PLATAFORMA DO CATARSE</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 DIVINE COLLECTION. Todos os direitos reservados.</p>
+      <p>Contato: christophercbs@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    function createBloodDrip() {
+      const bloodDrip = document.getElementById('bloodDrip');
+      const drop = document.createElement('div');
+      drop.classList.add('blood-drop');
+      drop.style.left = `${Math.random() * 100}%`;
+      drop.style.animationDuration = `${Math.random() * 2 + 3}s`;
+      bloodDrip.appendChild(drop);
+
+      setTimeout(() => {
+        drop.remove();
+      }, 5000);
+    }
+
+    setInterval(createBloodDrip, 300);
+
+    let lastScrollTop = 0;
+    const header = document.getElementById('header');
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      lastScrollTop = scrollTop;
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const bookCovers = document.querySelectorAll('.book-cover img');
+    bookCovers.forEach(bookCover => {
+      bookCover.addEventListener('mousemove', (e) => {
+        const { offsetX, offsetY } = e;
+        const { offsetWidth, offsetHeight } = bookCover;
+        const rotateX = (offsetY / offsetHeight - 0.5) * 10;
+        const rotateY = -(offsetX / offsetWidth - 0.5) * 10;
+        
+        bookCover.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+      });
+
+      bookCover.addEventListener('mouseleave', () => {
+        bookCover.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+      });
+    });
+  </script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+</body></html>
