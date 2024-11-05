@@ -1,10 +1,193 @@
 <!DOCTYPE html><html><head><base href="https://www.livro-horror-inovador.com/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divine Collection - Coleção de Livros</title>
+<title>Pesadelos Eternos - Um Livro de Horror Visceral</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Cinzel+Decorative:wght@400;700&display=swap');
+
+  /* Add/modify these CSS rules inside the existing <style> tag */
+  @media screen and (max-width: 768px) {
+    header {
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 5px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    /* Add hamburger menu button */
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      z-index: 1001;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .menu-toggle::after {
+      content: 'MENU';
+      font-size: 16px;
+      margin-left: 5px;
+      font-family: var(--main-font);
+    }
+
+    nav {
+      display: none; /* Hide by default */
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+
+    nav.active {
+      display: block;
+    }
+
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+      padding: 5px 0;
+    }
+
+    nav ul li {
+      margin: 5px 0;
+      width: 90%;
+    }
+
+    nav ul li a {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      font-size: 1.1rem;
+      margin: 2px 0;
+      background: rgba(139, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+  }
+
+  /* Desktop styles */
+  @media screen and (min-width: 769px) {
+    .menu-toggle {
+      display: none;
+    }
+
+    nav {
+      display: block !important;
+    }
+  }
+
+  /* Ensure images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Improve spacing for better mobile reading */
+  p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+  }
+
+  /* Add this media query inside the existing <style> tag */
+  @media screen and (max-width: 768px) {
+    .book-preview {
+      flex-direction: column;
+      padding: 15px; /* Reduced padding to use more space */
+    }
+
+    .book-cover {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .book-cover img {
+      max-width: 280px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .book-description {
+      padding: 0;
+      text-align: left; /* Change from center to left alignment */
+      width: 100%; /* Use full width */
+    }
+
+    .book-description h2 {
+      text-align: left; /* Change from center to left alignment */
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .book-description p {
+      text-align: left;
+      margin: 0 0 15px 0; /* Add proper spacing between paragraphs */
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  /* Adjust header for better mobile usability */
+  header {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* Author section mobile styles */
+  #autor {
+    margin-bottom: 150px;
+  }
+
+  #autor img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  /* Add these media queries for mobile devices */
+  @media screen and (max-width: 768px) {
+    #autor {
+      padding: 15px;
+    }
+
+    #autor img {
+      float: none;
+      display: block;
+      margin: 0 auto 20px;
+      width: 200px;
+      height: 200px;
+    }
+
+    #autor p {
+      text-align: left;
+      margin: 0 0 15px 0;
+      padding: 0;
+      width: 100%;
+      clear: both;
+    }
+  }
+
+  /* Add these styles for desktop */
+  @media screen and (min-width: 769px) {
+    #autor img {
+      float: left;
+      margin-right: 20px;
+    }
+
+    #autor p {
+      margin-left: 220px;
+    }
+  }
 
   :root {
     --bg-color: #0a0a0a;
@@ -156,12 +339,48 @@
     transform: scale(1.05);
   }
 
-  .social-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
+    .social-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* Add these media queries for desktop social buttons */
+    @media screen and (min-width: 769px) {
+      .social-buttons {
+        flex-direction: column;
+        align-items: center; /* Change from flex-start to center */
+        gap: 10px;
+        margin-top: 15px;
+        width: 100%; /* Change from fit-content to 100% */
+      }
+
+      .social-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        width: 160px;
+        justify-content: center; /* Change from flex-start to center */
+      }
+    }
+
+    /* Keep mobile social buttons as they are */
+    @media screen and (max-width: 768px) {
+      .social-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      
+      .social-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        flex: 1 1 auto;
+        min-width: 120px;
+        max-width: calc(50% - 5px);
+      }
+    }
+
 
   .social-button {
     display: inline-flex;
@@ -344,6 +563,9 @@
   <div class="blood-drip" id="bloodDrip"></div>
 
   <header id="header">
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
     <nav>
       <ul>
         <li><a href="#sobre">OS LIVROS</a></li>
@@ -357,23 +579,23 @@
 
   <main>
     <section class="hero" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNcXbr63zdd5yxS8ttPlzhuS8GhWR3uYKt4GToEIBNsnIfeXjmNq3Qf8a16D2Cn50awCUp-e8bhpiXXM02oJGiEDkvjehnPGovlEh3hIthmlj67RZ_ILAeKSGIzcLkIzMsHKsXjCsh_8583b7xQopv0kT3ROHulwTTAhEMOy6E_9-_-yUH85DSZicxgcYC/s16000/fundo.jpeg'); background-size: cover; background-position: center;">
-      <div class="hero-content" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 50px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-        <h1 style="color: white">DIVINE COLLECTION</h1>
-        <h2 class="subtitle" style="color: white; font-size: 1.8rem;">Financiamento Coletivo Aberto</h2>
-        <p>ACESSE O NOSSO CARTARSE PARA TER ACESSO A VÁRIAS RECOMPENSAS EXTRAS</p>
-        <a href="#comprar" class="cta-button">CONHEÇA MAIS AGORA MESMO</a>
-        <div class="social-buttons">
-          <a href="https://www.instagram.com/divinecollection" class="social-button">
-            <i class="fab fa-instagram"></i> Instagram
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61568094037261" class="social-button">
-            <i class="fab fa-facebook"></i> Facebook
-          </a>
-          <a href="https://www.youtube.com/@DivineCollectionbooks" class="social-button">
-  <i class="fab fa-youtube"></i> YouTube
-</a>
-        </div>
-      </div>
+      <div class="hero-content" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 50px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 10px; max-width: 600px; width: auto;">
+  <h1 style="color: white; font-size: 2.5rem !important; line-height: 1.2;">DIVINE COLLECTION</h1>
+  <h2 class="subtitle" style="color: white; font-size: 1.4rem !important;">Financiamento Coletivo Aberto</h2>
+  <p style="font-size: 0.9rem;">ACESSE O NOSSO CARTARSE PARA TER ACESSO A VÁRIAS RECOMPENSAS EXTRAS</p>
+  <a href="#comprar" class="cta-button" style="padding: 12px 24px; font-size: 1rem; white-space: normal; text-align: center; width: 100%; max-width: 280px; margin: 10px auto;">CONHEÇA MAIS AGORA MESMO</a>
+  <div class="social-buttons" style="flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+    <a href="https://www.instagram.com/divinecollection" class="social-button" style="padding: 8px 15px; font-size: 0.9rem; flex: 1 1 auto; min-width: 120px; max-width: calc(50% - 5px);">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.facebook.com/divinecollection" class="social-button" style="padding: 8px 15px; font-size: 0.9rem; flex: 1 1 auto; min-width: 120px; max-width: calc(50% - 5px);">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    <a href="https://www.youtube.com/@DivineCollectionbooks" class="social-button" style="padding: 8px 15px; font-size: 0.9rem; flex: 1 1 auto; min-width: 120px; max-width: calc(50% - 5px);">
+      <i class="fab fa-youtube"></i> YouTube
+    </a>
+  </div>
+</div>
     </section>
 
     <div class="container">
@@ -384,20 +606,13 @@
         <div class="book-description">
           <h2>INFERNO: Entre Anjos e Demônios</h2>
           <p>
-            Uma nova versão do clássico Divina comédia, ou mais conhecido como Inferno de Dante.
-            O livro original, com mais de 700 anos, tem uma linguagem feita em cantos, traduzida do italiano antigo e simbolismos complexos. Então pode afastar os novos leitores.
-
-            Mas agora você conhecerá a minha inédita versão. Aqui, você acompanhará toda a história original, mas de um jeito totalmente atual. 
-            Neste livro, temos a descrição mais detalhada do Inferno que já foi imaginada na literatura.
-          </p>
+  Essa nova versão da Divina Comédia traz uma releitura acessível e moderna do Inferno de Dante. Diferente do original, com mais de 700 anos e repleto de simbolismos complexos, esta adaptação preserva a essência da obra, mas com uma linguagem jovem a atual que facilita a compreensão.
+</p>
           <p>
-            Em forma de aventura, Acompanhe dante por sua passagem pelos nove círculos do Inferno, enfrentando diversos desafios, conhecendo os pecadores e enfrentando criaturas infernais.
-            Acompanhe tambem a caminhada das almas, seus pecados através montanha do Purgatório e finalmente chegue ao paraíso, onde Dante conhece todas as divindades, santos e anjos, até o Próprio Deus.
-          </p>
+  Acompanhe Dante em uma jornada épica pelos nove círculos do Inferno, enfrentando desafios, conhecendo pecadores e criaturas sombrias. Em seguida, suba pelo Purgatório, onde as almas buscam redenção, e chegue ao Paraíso, encontrando santos, anjos e o próprio Deus. Nesta versão, os simbolismos são explicados de forma clara, proporcionando uma leitura fluida e envolvente, que transforma a obra em uma verdadeira aventura espiritual.
+</p>
           <p>
-            Diferente do livro original, você não precisará estudar por dias para tentar entender tudo que o autor queria dizer. Eu já fiz isso pra você!
-            Aqui, Os simbolismos complexos são apresentados de uma maneira facil e explicada, para que você tenha uma leitura totalmente fluida e divertida, apenas aproveitando da Aventura de Dante através do mundo espiritual!
-          </p>
+</p>
         </div>
       </section>
 
@@ -410,14 +625,9 @@
           <div>
           </div>
           <p>
-            Uma nova versão da história de Paraíso Perdido, de Milton. Com mais de 400 anos, é considerado por muitos a descrição mais detalhada da guerra no céu, tendo como personagem principal o próprio lúcifer. 
-            Mas como também foi escrita em cantos, e com uma escrita arcaica, afasta maioria de novos leitores. Então, conheça a minha versão atualizada: A Queda: Paraiso Perdido.
-          </p>
-          <p>
-            Reescrito e reimaginado de uma forma épica, acompanhe a intensa batalha dos anjos, onde milhares brigam pelo céu. Com uma narrativa bem facil, acompanhe a história de Lucifer.
-            Um personagem extremamente complexo, que depois de ser expulso dos céus com um terço dos anjos,  tenta escapar do inferno, buscando entender melhor o seu lugar no universo e investigar sobre a nova criação de Deus.
-            E o melhor de tudo? Essa versão conecta detalhes não contados na Bíblia e amarra as histórias de uma forma única, que vai te prender do começo ao fim.
-          </p>
+  A Queda: Paraíso Perdido é uma versão moderna e épica do clássico Paraíso Perdido, de John Milton. Mantendo a essência da obra original, esta reimaginação traz uma narrativa fluida e envolvente sobre a guerra no céu, liderada por Lúcifer. Com uma escrita acessível, você acompanhará a complexa jornada de Lúcifer após sua expulsão, enquanto ele tenta escapar do Inferno e investiga a nova criação de Deus. Além disso, esta versão explora conexões inéditas com a Bíblia, amarrando detalhes de forma única e envolvente para prender você do início ao fim.
+</p>
+          <p></p>
         </div>
       </section>
 
@@ -510,25 +720,52 @@
 
     setInterval(createBloodDrip, 300);
 
-    let lastScrollTop = 0;
-    const header = document.getElementById('header');
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      const header = document.getElementById('header');
+      let lastScrollTop = 0;
 
-    window.addEventListener('scroll', () => {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-        header.classList.add('header-hidden');
-      } else {
-        header.classList.remove('header-hidden');
-      }
-      lastScrollTop = scrollTop;
-    });
+      // Toggle menu on button click
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', 
+          nav.classList.contains('active') ? 'true' : 'false'
+        );
+      });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+      // Hide menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!header.contains(e.target) && nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            nav.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
         });
+      });
+
+      // Handle scroll behavior
+      window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 768) {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          if (scrollTop > lastScrollTop && scrollTop > 50) {
+            header.classList.add('header-hidden');
+            nav.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          } else {
+            header.classList.remove('header-hidden');
+          }
+          lastScrollTop = scrollTop;
+        }
       });
     });
 
